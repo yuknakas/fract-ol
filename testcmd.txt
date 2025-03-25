@@ -1,0 +1,1 @@
+cc test.c -L00_libft -lft -Lminilibx-linux -lmlx -lGL -lX11 -lXext
