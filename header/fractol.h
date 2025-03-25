@@ -6,7 +6,7 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 15:24:02 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/03/14 15:52:21 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/03/25 15:44:41 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,16 @@
 # include <math.h>
 # include <pthread.h>
 
-# define SIZE 2000
+# define SIZE 700
+# define FLOP 2000000000
+# define COST 15
+# define BLACK 0x000000
+# define MID_YEL 0xfcbe11
+# define MANDEL 1
+# define JULIA 2
+# define SHIP 3
 
+//structure used to convey data
 typedef struct s_fractal
 {
 	void	*mlx;
@@ -39,8 +47,21 @@ typedef struct s_fractal
 	double	offset_x;
 	double	offset_y;
 	double	zoom;
-	char	*name;
+	int		type;
 	int		max_iterations;
+	int		iteration_limit;
+	int		calc_left;
 }			t_fractal;
+
+// int		main(int argc, char **argv);
+int		fr_initialize_setup(t_fractal *fractal, char *arg_name);
+
+//03_calculations
+int		fr_calculate_julia(t_fractal *frac);
+int		fr_calculate_mandelbrot(t_fractal *frac);
+int		fr_calculate_burningship(t_fractal *frac);
+
+//10_utils
+void	fr_put_color_pixel(t_fractal *fractal, int x, int y, int color);
 
 #endif
