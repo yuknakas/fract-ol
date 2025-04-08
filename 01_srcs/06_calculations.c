@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   03_calculations.c                                  :+:      :+:    :+:   */
+/*   06_calculations.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 14:01:22 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/03/25 15:56:26 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/04/08 17:07:18 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	fr_calculate_julia(t_fractal *frac)
 		tmp = frac->zx;
 		frac->zx = frac->zx * frac->zx - frac->zy * frac->zy + frac->cx;
 		frac->zy = 2 * tmp * frac->zy + frac->cy;
-		if (frac->zx * frac ->zx + frac->zy * frac->zy > __DBL_MAX__)
+		if (frac->zx * frac ->zx + frac->zy * frac->zy > 4)
 			break ;
 		iterations++;
 	}
@@ -54,7 +54,7 @@ int	fr_calculate_mandelbrot(t_fractal *frac)
 		tmp = frac->zx;
 		frac->zx = frac->zx * frac->zx - frac->zy * frac->zy + frac->cx;
 		frac->zy = 2 * tmp * frac->zy + frac->cy;
-		if (frac->zx * frac ->zx + frac->zy * frac->zy > __DBL_MAX__)
+		if (frac->zx * frac ->zx + frac->zy * frac->zy > 4)
 			break ;
 		iterations++;
 	}
@@ -82,8 +82,8 @@ int	fr_calculate_burningship(t_fractal *frac)
 	{
 		tmp = frac->zx;
 		frac->zx = fabs(frac->zx * frac->zx - frac->zy * frac->zy + frac->cx);
-		frac->zy = fabs(2 * tmp * frac->zy + frac->cy);
-		if (frac->zx * frac ->zx + frac->zy * frac->zy > __DBL_MAX__)
+		frac->zy = fabs(2.0 * tmp * frac->zy) + frac->cy;
+		if (frac->zx * frac ->zx + frac->zy * frac->zy > 4)
 			break ;
 		iterations++;
 	}

@@ -6,7 +6,7 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 15:45:34 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/03/25 15:40:54 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/04/08 16:52:01 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,19 +21,19 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 		return (_input_error_msg());
-	fractal = malloc(sizeof(fractal));
-	if (fractal == NULL)
+	fractal = malloc(sizeof(t_fractal));
+	if (!fractal)
 		return (-1);
-	if (!fr_initialize_setup(fractal, argv[1]))
+	if (!fr_setup_window(fractal, argv[1]))
+	{
+		fr_destroy_window(fractal);
 		return (_input_error_msg());
-	fr_identify_type(fractal);
-	//free all memory
-	return (0);
-}
-
-int	fr_identify_type(t_fractal *fractal)
-{
-	
+	}
+	mlx_key_hook(fractal->window, fr_key_hook, fractal);
+	mlx_mouse_hook(fractal->window, fr_mouse_hook, fractal);
+	mlx_hook(fractal->window, 17, 0L, fr_destroy_window, fractal);
+	mlx_loop_hook(fractal->mlx, (int (*)())fr_draw, fractal);
+	mlx_loop(fractal->mlx);
 	return (0);
 }
 

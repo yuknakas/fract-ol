@@ -6,39 +6,34 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 15:51:25 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/03/25 15:41:03 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/04/08 17:08:38 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/fractol.h"
 
-int			fr_initialize_setup(t_fractal *fractal, char *arg_name);
-static int	_setup_window(t_fractal *fractal);
+int			fr_initialize_setup(t_fractal *fractal);
+int			fr_setup_window(t_fractal *fractal, char *arg_name);
+static int	_find_type(t_fractal *fractal, char *arg_name);
 
-int	fr_initialize_setup(t_fractal *fractal, char *arg_name)
+int	fr_initialize_setup(t_fractal *fractal)
 {
-	if (!_setup_window)
-		return (0);
 	fractal->x = 0;
 	fractal->y = 0;
+	fractal->calc_left = -1;
 	fractal->color = MID_YEL;
-	fractal->zoom = 300;
+	fractal->zoom = (double)300;
 	fractal->offset_x = -1.21;
 	fractal->offset_y = -1.21;
-	fractal->iteration_limit = 42;
-	if (ft_strncmp(arg_name, "mandelbrot", 10))
-		fractal->type = MANDEL;
-	else if (ft_strncmp(arg_name, "julia", 10))
-		fractal->type = JULIA;
-	else if (ft_strncmp(arg_name, "burningship", 10))
-		fractal->type = SHIP;
-	else
-		return (0);
+	fractal->iteration_limit = 1000;
 	return (1);
 }
 
-static int	_setup_window(t_fractal *fractal)
+int	fr_setup_window(t_fractal *fractal, char *arg_name)
 {
+	if (_find_type(fractal, arg_name))
+		return (0);
+	fr_initialize_setup(fractal);
 	fractal->mlx = mlx_init();
 	fractal->window = mlx_new_window(fractal->mlx, SIZE, SIZE, "fract-ol");
 	fractal->image = mlx_new_image(fractal->mlx, SIZE, SIZE);
@@ -53,4 +48,24 @@ static int	_setup_window(t_fractal *fractal)
 		return (0);
 	}
 	return (1);
+}
+
+static int	_find_type(t_fractal *fractal, char *arg_name)
+{
+	if (!ft_strncmp(arg_name, "mandelbrot", 10))
+		fractal->type = MANDEL;
+	else if (!ft_strncmp(arg_name, "julia", 10))
+	{
+		if (!fractal->cx && !fractal->cy)
+		{
+			fractal->cx = -0.745429;
+			fractal->cy = 0.05;
+		}
+		fractal->type = JULIA;
+	}
+	else if (!ft_strncmp(arg_name, "burningship", 10))
+		fractal->type = SHIP;
+	else
+		return (1);
+	return (0);
 }

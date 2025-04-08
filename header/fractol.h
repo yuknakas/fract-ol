@@ -6,7 +6,7 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 15:24:02 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/03/25 15:44:41 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/04/08 16:58:24 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 # include <math.h>
 # include <pthread.h>
 
-# define SIZE 700
+# define SIZE 1200
 # define FLOP 2000000000
 # define COST 15
 # define BLACK 0x000000
@@ -26,6 +26,23 @@
 # define MANDEL 1
 # define JULIA 2
 # define SHIP 3
+
+// KEYCODES
+# define ESC 53
+# define UP 126
+# define DOWN 125
+# define LEFT 123
+# define RIGHT 124
+# define R 15
+# define C 8
+# define H 4
+# define J 38
+# define P 35
+# define M 46
+
+// MOUSECODES
+# define SCROLL_UP 4
+# define SCROLL_DOWN 5
 
 //structure used to convey data
 typedef struct s_fractal
@@ -54,14 +71,29 @@ typedef struct s_fractal
 }			t_fractal;
 
 // int		main(int argc, char **argv);
-int		fr_initialize_setup(t_fractal *fractal, char *arg_name);
+int		fr_initialize_setup(t_fractal *fractal);
+int		fr_setup_window(t_fractal *fractal, char *arg_name);
+
+//02_draw
+void	fr_draw(t_fractal *fractal);
+int		fr_first_mandel(t_fractal *fractal);
+int		fr_first_julia(t_fractal *fractal);
+int		fr_first_ship(t_fractal *fractal);
+int		fr_draw_mandel(t_fractal *fractal);
+int		fr_draw_julia(t_fractal *fractal);
+int		fr_draw_ship(t_fractal *fractal);
 
 //03_calculations
 int		fr_calculate_julia(t_fractal *frac);
 int		fr_calculate_mandelbrot(t_fractal *frac);
 int		fr_calculate_burningship(t_fractal *frac);
 
+//04_05_hooks
+int		fr_key_hook(int key_code, t_fractal *fractal);
+int		fr_mouse_hook(int mouse_code, int x, int y, t_fractal *fractal);
+
 //10_utils
 void	fr_put_color_pixel(t_fractal *fractal, int x, int y, int color);
+int		fr_destroy_window(t_fractal *fractal);
 
 #endif
