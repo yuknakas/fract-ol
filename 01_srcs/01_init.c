@@ -6,15 +6,14 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 15:51:25 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/04/12 15:17:30 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/04/12 16:21:15 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/fractol.h"
 
 int			fr_initialize_setup(t_fractal *fractal);
-int			fr_setup_window(t_fractal *fractal, char *arg_name);
-static int	_find_type(t_fractal *fractal, char *arg_name);
+int			fr_setup_window(t_fractal *fractal);
 
 int	fr_initialize_setup(t_fractal *fractal)
 {
@@ -29,10 +28,8 @@ int	fr_initialize_setup(t_fractal *fractal)
 	return (1);
 }
 
-int	fr_setup_window(t_fractal *fractal, char *arg_name)
+int	fr_setup_window(t_fractal *fractal)
 {
-	if (_find_type(fractal, arg_name))
-		return (0);
 	fr_initialize_setup(fractal);
 	fractal->mlx = mlx_init();
 	fractal->window = mlx_new_window(fractal->mlx, SIZE, SIZE, "fract-ol");
@@ -48,24 +45,4 @@ int	fr_setup_window(t_fractal *fractal, char *arg_name)
 		return (0);
 	}
 	return (1);
-}
-
-static int	_find_type(t_fractal *fractal, char *arg_name)
-{
-	if (!ft_strncmp(arg_name, "mandelbrot", 10))
-		fractal->type = MANDEL;
-	else if (!ft_strncmp(arg_name, "julia", 10))
-	{
-		if (!fractal->cx && !fractal->cy)
-		{
-			fractal->cx = -0.745429;
-			fractal->cy = 0.05;
-		}
-		fractal->type = JULIA;
-	}
-	else if (!ft_strncmp(arg_name, "burningship", 10))
-		fractal->type = SHIP;
-	else
-		return (1);
-	return (0);
 }

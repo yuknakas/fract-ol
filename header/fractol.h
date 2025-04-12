@@ -6,7 +6,7 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 15:24:02 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/04/12 15:42:24 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/04/12 16:21:23 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,7 @@ typedef struct s_fractal
 
 // int		main(int argc, char **argv);
 int		fr_initialize_setup(t_fractal *fractal);
-int		fr_setup_window(t_fractal *fractal, char *arg_name);
+int		fr_setup_window(t_fractal *fractal);
 
 //02_draw
 void	fr_draw(t_fractal *fractal);
