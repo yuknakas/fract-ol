@@ -6,7 +6,7 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 15:08:10 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/04/08 16:45:09 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/04/12 14:21:09 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,7 @@ int	fr_first_julia(t_fractal *fractal)
 
 	printf("drawing first\n");
 	fractal->x = 0;
-	fractal->max_iterations = FLOP / 30 / SIZE / SIZE / COST;
-	printf("max interation: %d\n", fractal->max_iterations);
-	if (fractal->max_iterations > fractal->iteration_limit)
-		fractal->max_iterations = fractal->iteration_limit;
+	fr_initial_iteration(fractal);
 	remain = 0;
 	while (fractal->x < SIZE)
 	{

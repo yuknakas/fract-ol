@@ -6,7 +6,7 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 15:08:10 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/04/08 17:12:25 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/04/12 14:04:41 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,9 @@ int	fr_first_mandel(t_fractal *fractal)
 {
 	int	remain;
 
-	printf("drawing first\n");
+	printf("zoom is:%f\n", fractal->zoom);
 	fractal->x = 0;
-	fractal->max_iterations = FLOP / SIZE / SIZE / COST;
-	printf("max interation: %d\n", fractal->max_iterations);
-	if (fractal->max_iterations > fractal->iteration_limit)
-		fractal->max_iterations = fractal->iteration_limit;
+	fr_initial_iteration(fractal);
 	remain = 0;
 	while (fractal->x < SIZE)
 	{

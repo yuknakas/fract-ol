@@ -22,10 +22,7 @@ int	fr_first_ship(t_fractal *fractal)
 
 	printf("drawing first\n");
 	fractal->x = 0;
-	fractal->max_iterations = FLOP / 30 / SIZE / SIZE / COST;
-	printf("max interation: %d\n", fractal->max_iterations);
-	if (fractal->max_iterations > fractal->iteration_limit)
-		fractal->max_iterations = fractal->iteration_limit;
+	fr_initial_iteration(fractal);
 	remain = 0;
 	while (fractal->x < SIZE)
 	{

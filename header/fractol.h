@@ -6,7 +6,7 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 15:24:02 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/04/08 16:58:24 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/04/12 15:42:24 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,9 @@
 # include <math.h>
 # include <pthread.h>
 
-# define SIZE 1200
+# define SIZE 700
 # define FLOP 2000000000
-# define COST 15
+# define COST 40
 # define BLACK 0x000000
 # define MID_YEL 0xfcbe11
 # define MANDEL 1
@@ -28,19 +28,22 @@
 # define SHIP 3
 
 // KEYCODES
-# define ESC 53
-# define UP 126
-# define DOWN 125
-# define LEFT 123
-# define RIGHT 124
-# define R 15
-# define C 8
-# define H 4
-# define J 38
-# define P 35
-# define M 46
+# define ESC 65307
+# define UP 65362
+# define DOWN 65364
+# define LEFT 65361
+# define RIGHT 65363
+# define R 114
+# define C 99
+# define H 104
+# define J 106
+# define P 112
+# define M 109
 
 // MOUSECODES
+# define MOUSE_LEFT 1
+# define MOUSE_MIDDLE 2
+# define MOUSE_RIGHT 3
 # define SCROLL_UP 4
 # define SCROLL_DOWN 5
 
@@ -95,5 +98,6 @@ int		fr_mouse_hook(int mouse_code, int x, int y, t_fractal *fractal);
 //10_utils
 void	fr_put_color_pixel(t_fractal *fractal, int x, int y, int color);
 int		fr_destroy_window(t_fractal *fractal);
+void	fr_initial_iteration(t_fractal *fractal);
 
 #endif
