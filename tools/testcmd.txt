@@ -1,0 +1,13 @@
+cc test.c -L00_libft -lft -Lminilibx-linux -lmlx -lGL -lX11 -lXext
+
+
+cc -Wall -Wextra -Werror -o fract-ol 01_srcs/*.c -L00_libft -lft -Lminilibx-linux -lmlx -lGL -lX11 -lXext
+
+zoom is:5143035648977429992046592.000000
+max interation: -2147483598
+zoom is:7303110621547950223392768.000000
+max interation: -2147483598
+zoom is:10370417082598088797847552.000000
+max interation: -2147483598
+zoom is:14725992257289285356486656.000000
+max interation: -2147483598

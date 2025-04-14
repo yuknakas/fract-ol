@@ -1,8 +1,12 @@
 #include "header/fractol.h"
 #include <stdio.h>
+#include <limits.h>
 
 int main()
 {
+	long double db;
+
+	db = __SIZEOF_LONG_DOUBLE__
 	void *mlx = mlx_init();
 	void *window = mlx_new_window(mlx, SIZE, SIZE, "test window");
 	sleep(10);
