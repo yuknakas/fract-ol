@@ -42,8 +42,8 @@ int	fr_key_hook(int key_code, t_fractal *fractal)
 
 static void	_set_random_julia(t_fractal *fractal)
 {
-	fractal->cx = ((double)rand() / RAND_MAX) * 3.0 - 1.5;
-	fractal->cy = ((double)rand() / RAND_MAX) * 3.0 - 1.5;
+	fractal->cx = ((long double)rand() / RAND_MAX) * 3.0 - 1.5;
+	fractal->cy = ((long double)rand() / RAND_MAX) * 3.0 - 1.5;
 }
 
 static void	_change_iterations(t_fractal *fractal, int key_code)

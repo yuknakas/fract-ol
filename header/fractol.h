@@ -18,7 +18,7 @@
 # include <math.h>
 # include <pthread.h>
 
-# define SIZE 700
+# define SIZE 1000
 # define FLOP 2000000000
 # define COST 40
 # define BLACK 0x000000
@@ -50,35 +50,35 @@
 //structure used to convey data
 typedef struct s_fractal
 {
-	void	*mlx;
-	void	*window;
-	void	*image;
-	void	*pointer_to_image;
-	int		bits_per_pixel;
-	int		size_line;
-	int		endian;
-	int		x;
-	int		y;
-	double	zx;
-	double	zy;
-	double	cx;
-	double	cy;
-	int		color;
-	double	offset_x;
-	double	offset_y;
-	double	zoom;
-	int		type;
-	int		max_iterations;
-	int		iteration_limit;
-	int		calc_left;
-}			t_fractal;
+	void		*mlx;
+	void		*window;
+	void		*image;
+	void		*pointer_to_image;
+	int				bits_per_pixel;
+	int			size_line;
+	int			endian;
+	int			x;
+	int			y;
+	long double	zx;
+	long double	zy;
+	long double	cx;
+	long double	cy;
+	int			color;
+	long double	offset_x;
+	long double	offset_y;
+	long double	zoom;
+	int			type;
+	int			max_iterations;
+	int			iteration_limit;
+	int			calc_left;
+}				t_fractal;
 
 // int		main(int argc, char **argv);
 int		fr_initialize_setup(t_fractal *fractal);
 int		fr_setup_window(t_fractal *fractal);
 
 //02_draw
-void	fr_draw(t_fractal *fractal);
+int		fr_draw(t_fractal *fractal);
 int		fr_first_mandel(t_fractal *fractal);
 int		fr_first_julia(t_fractal *fractal);
 int		fr_first_ship(t_fractal *fractal);

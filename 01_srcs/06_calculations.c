@@ -14,8 +14,8 @@
 
 int	fr_calculate_julia(t_fractal *frac)
 {
-	int		iterations;
-	double	tmp;
+	int			iterations;
+	long double	tmp;
 
 	frac->zx = frac->x / frac->zoom + frac->offset_x;
 	frac->zy = frac->y / frac->zoom + frac->offset_y;
@@ -41,8 +41,8 @@ int	fr_calculate_julia(t_fractal *frac)
 
 int	fr_calculate_mandelbrot(t_fractal *frac)
 {
-	int		iterations;
-	double	tmp;
+	int			iterations;
+	long double	tmp;
 
 	frac->zx = 0.0;
 	frac->zy = 0.0;
@@ -70,8 +70,8 @@ int	fr_calculate_mandelbrot(t_fractal *frac)
 
 int	fr_calculate_burningship(t_fractal *frac)
 {
-	int		iterations;
-	double	tmp;
+	int			iterations;
+	long double	tmp;
 
 	frac->zx = 0.0;
 	frac->zy = 0.0;
@@ -81,8 +81,8 @@ int	fr_calculate_burningship(t_fractal *frac)
 	while (iterations < frac->max_iterations)
 	{
 		tmp = frac->zx;
-		frac->zx = fabs(frac->zx * frac->zx - frac->zy * frac->zy + frac->cx);
-		frac->zy = fabs(2.0 * tmp * frac->zy) + frac->cy;
+		frac->zx = fabsl(frac->zx * frac->zx - frac->zy * frac->zy + frac->cx);
+		frac->zy = fabsl(2.0 * tmp * frac->zy) + frac->cy;
 		if (frac->zx * frac ->zx + frac->zy * frac->zy > 4)
 			break ;
 		iterations++;

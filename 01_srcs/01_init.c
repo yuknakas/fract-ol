@@ -21,10 +21,10 @@ int	fr_initialize_setup(t_fractal *fractal)
 	fractal->y = 0;
 	fractal->calc_left = -1;
 	fractal->color = MID_YEL;
-	fractal->zoom = (double)300;
+	fractal->zoom = (long double)300;
 	fractal->offset_x = -1.21;
 	fractal->offset_y = -1.21;
-	fractal->iteration_limit = 1000;
+	fractal->iteration_limit = 420;
 	return (1);
 }
 

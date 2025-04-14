@@ -46,6 +46,8 @@ void	fr_initial_iteration(t_fractal *fractal)
 	if (addition > 100)
 		addition = 100;
 	fractal->max_iterations = FLOP / SIZE / SIZE / COST + addition;
+	if (fractal->max_iterations < 1)
+		fractal->max_iterations = 1;
 	printf("max interation: %d\n", fractal->max_iterations);
 	if (fractal->max_iterations > fractal->iteration_limit)
 		fractal->max_iterations = fractal->iteration_limit;

@@ -12,11 +12,11 @@
 
 #include "../header/fractol.h"
 
-void		fr_draw(t_fractal *fractal);
+int			fr_draw(t_fractal *fractal);
 static void	_first_draw(t_fractal *fractal);
 static void	_rest_draw(t_fractal *fractal);
 
-void	fr_draw(t_fractal *fractal)
+int		fr_draw(t_fractal *fractal)
 {
 	if (fractal->calc_left == -1)
 		_first_draw(fractal);
@@ -24,6 +24,7 @@ void	fr_draw(t_fractal *fractal)
 		_rest_draw(fractal);
 	if (fractal->max_iterations > fractal->iteration_limit)
 		fractal->max_iterations = fractal->iteration_limit;
+	return (0);
 }
 
 static void	_first_draw(t_fractal *fractal)

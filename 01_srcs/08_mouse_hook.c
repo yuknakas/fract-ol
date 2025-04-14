@@ -30,7 +30,7 @@ int	fr_mouse_hook(int mouse_code, int x, int y, t_fractal *fractal)
 
 static void	_zoom(t_fractal *fractal, int x, int y, int in_out)
 {
-	double	zoom_level;
+	long double	zoom_level;
 
 	zoom_level = 1.42;
 	if (in_out == 1)

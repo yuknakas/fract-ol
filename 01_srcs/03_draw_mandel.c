@@ -20,7 +20,7 @@ int	fr_first_mandel(t_fractal *fractal)
 {
 	int	remain;
 
-	printf("zoom is:%f\n", fractal->zoom);
+	printf("zoom is:%Lf\n", fractal->zoom);
 	fractal->x = 0;
 	fr_initial_iteration(fractal);
 	remain = 0;

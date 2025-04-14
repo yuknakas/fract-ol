@@ -38,7 +38,7 @@ int	main(int argc, char **argv)
 	mlx_key_hook(fractal->window, fr_key_hook, fractal);
 	mlx_mouse_hook(fractal->window, fr_mouse_hook, fractal);
 	mlx_hook(fractal->window, 17, 0L, fr_destroy_window, fractal);
-	mlx_loop_hook(fractal->mlx, (int (*)())fr_draw, fractal);
+	mlx_loop_hook(fractal->mlx, fr_draw, fractal);
 	mlx_loop(fractal->mlx);
 	return (0);
 }
