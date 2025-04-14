@@ -1,4 +1,0 @@
-cc test.c -L00_libft -lft -Lminilibx-linux -lmlx -lGL -lX11 -lXext
-
-
-cc -Wall -Wextra -Werror -o fract-ol 01_srcs/*.c -L00_libft -lft -Lminilibx-linux -lmlx -lGL -lX11 -lXext
