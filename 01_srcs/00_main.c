@@ -57,11 +57,8 @@ static int	_find_type(t_fractal *fractal, char *arg_name)
 		fractal->type = MANDEL;
 	else if (!ft_strncmp(arg_name, "julia", 10))
 	{
-		if (!fractal->cx && !fractal->cy)
-		{
-			fractal->cx = -0.745429;
-			fractal->cy = 0.05;
-		}
+		fractal->cx = -0.745429;
+		fractal->cy = 0.05;
 		fractal->type = JULIA;
 	}
 	else if (!ft_strncmp(arg_name, "burningship", 10))
