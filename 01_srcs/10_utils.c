@@ -6,12 +6,11 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 14:28:48 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/04/12 16:18:45 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/04/16 09:38:19 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/fractol.h"
-#include <stdio.h>
 
 void	fr_put_color_pixel(t_fractal *fractal, int x, int y, int color);
 int		fr_destroy_window(t_fractal *fractal);
@@ -48,7 +47,6 @@ void	fr_initial_iteration(t_fractal *fractal)
 	fractal->max_iterations = FLOP / SIZE / SIZE / COST + addition;
 	if (fractal->max_iterations < 1)
 		fractal->max_iterations = 1;
-	printf("max interation: %d\n", fractal->max_iterations);
 	if (fractal->max_iterations > fractal->iteration_limit)
 		fractal->max_iterations = fractal->iteration_limit;
 }

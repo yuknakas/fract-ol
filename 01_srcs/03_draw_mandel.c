@@ -6,12 +6,11 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/25 15:08:10 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/04/12 14:04:41 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/04/16 09:37:28 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../header/fractol.h"
-#include <stdio.h>
 
 int	fr_first_mandel(t_fractal *fractal);
 int	fr_draw_mandel(t_fractal *fractal);
@@ -20,7 +19,6 @@ int	fr_first_mandel(t_fractal *fractal)
 {
 	int	remain;
 
-	printf("zoom is:%Lf\n", fractal->zoom);
 	fractal->x = 0;
 	fr_initial_iteration(fractal);
 	remain = 0;
@@ -44,7 +42,6 @@ int	fr_draw_mandel(t_fractal *fractal)
 	int	*buffer;
 	int	remain;
 
-	printf("drawing rest\n");
 	buffer = fractal->pointer_to_image;
 	fractal->x = 0;
 	remain = 0;

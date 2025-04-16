@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "../header/fractol.h"
-#include <stdio.h>
 
 int	fr_first_ship(t_fractal *fractal);
 int	fr_draw_ship(t_fractal *fractal);
@@ -20,7 +19,6 @@ int	fr_first_ship(t_fractal *fractal)
 {
 	int	remain;
 
-	printf("drawing first\n");
 	fractal->x = 0;
 	fr_initial_iteration(fractal);
 	remain = 0;
@@ -44,7 +42,6 @@ int	fr_draw_ship(t_fractal *fractal)
 	int	*buffer;
 	int	remain;
 
-	printf("drawing rest\n");
 	buffer = fractal->pointer_to_image;
 	fractal->x = 0;
 	remain = 0;

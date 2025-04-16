@@ -6,7 +6,7 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/14 15:51:25 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/04/12 16:21:15 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/04/16 09:37:35 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	fr_initialize_setup(t_fractal *fractal)
 	fractal->zoom = (long double)300;
 	fractal->offset_x = -1.21;
 	fractal->offset_y = -1.21;
-	fractal->iteration_limit = 420;
+	fractal->iteration_limit = 10;
 	return (1);
 }
 

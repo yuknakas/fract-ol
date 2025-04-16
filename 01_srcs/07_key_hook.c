@@ -6,7 +6,7 @@
 /*   By: yuknakas <yuknakas@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/08 10:17:28 by yuknakas          #+#    #+#             */
-/*   Updated: 2025/04/12 16:06:58 by yuknakas         ###   ########.fr       */
+/*   Updated: 2025/04/16 09:46:03 by yuknakas         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,13 +50,13 @@ static void	_change_iterations(t_fractal *fractal, int key_code)
 {
 	if (key_code == M)
 	{
-		fractal->iteration_limit -= 100;
+		fractal->iteration_limit -= 42;
 		if (fractal->iteration_limit < 1)
 			fractal->iteration_limit = 1;
 	}
 	else if (key_code == P)
 	{
-		if (fractal->max_iterations < 4200)
-			fractal->max_iterations += 100;
+		if (fractal->iteration_limit < 4200)
+			fractal->iteration_limit += 42;
 	}
 }
